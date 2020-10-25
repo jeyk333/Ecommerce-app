@@ -8,6 +8,12 @@ export const Styles = (theme) => ({
     flex: 1,
     "& img": {
       width: "8%",
+      [theme.breakpoints.down("sm")]: {
+        width: "20%",
+      },
     },
+  },
+  icon: {
+    cursor: "pointer",
   },
 });

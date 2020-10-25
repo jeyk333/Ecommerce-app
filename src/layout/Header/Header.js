@@ -1,18 +1,29 @@
 import React from "react";
-import { withStyles, AppBar, Toolbar } from "@material-ui/core";
+import { withStyles, AppBar, Toolbar, Badge } from "@material-ui/core";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import { Styles } from "./styles";
 import Logo from "../../assets/images/logo.svg";
 
-const Header = ({ classes }) => {
+const Header = ({ classes, totalQty, handleOpen }) => {
   return (
-    <AppBar>
+    <AppBar position="static">
       <Toolbar>
         <div className={classes.root}>
           <div className={classes.logo}>
             <img src={Logo} alt="logo" />
           </div>
-          <ShoppingCartOutlined />
+          <Badge
+            badgeContent={totalQty}
+            color="secondary"
+            showZero
+            onClick={handleOpen}
+            className={classes.icon}
+          >
+            <ShoppingCartOutlined
+              className={classes.icon}
+              onClick={handleOpen}
+            />
+          </Badge>
         </div>
       </Toolbar>
     </AppBar>
